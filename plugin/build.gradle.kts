@@ -16,6 +16,8 @@ plugins {
     `kotlin-dsl`
 }
 
+//println((project as org.gradle.api.plugins.ExtensionAware).extensions)
+
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
@@ -57,7 +59,7 @@ gradlePlugin {
     // Define the plugin
     val greeting by plugins.creating {
         id = "native-support"
-        implementationClass = "org.example.NativeSupportPlugin"
+        implementationClass = "org.nativeSupport.NativeSupportPlugin"
     }
 }
 

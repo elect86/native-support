@@ -7,4 +7,5 @@
  */
 
 rootProject.name = "native-support"
-include("plugin")
+includeBuild("plugin")
+includeBuild("loader")

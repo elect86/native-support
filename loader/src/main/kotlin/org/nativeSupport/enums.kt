@@ -1,4 +1,4 @@
-package org.example
+package org.nativeSupport
 
 // based on https://github.com/trustin/os-maven-plugin
 
@@ -16,6 +16,8 @@ enum class OS {
     zos;
 
     companion object {
+        val current: OS
+            get() = of(System.getProperty("os.name"))
         infix fun of(value: String): OS {
             val v = value.normalized()
             return when {
@@ -64,6 +66,8 @@ enum class Arch {
     loongarch_64;
 
     companion object {
+        val current: Arch
+            get() = of(System.getProperty("os.arch"))
         infix fun of(value: String): Arch {
             val v = value.normalized()
             return when {
