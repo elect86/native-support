@@ -14,8 +14,8 @@ object LibLoader {
                 .split(File.pathSeparatorChar)
                 .filter { it.endsWith("-natives-${OS.current}-${Arch.current}.jar") }
                 .map(::nativeLibraryFrom)
-        for (native in natives) {
-            if (File())
-        }
+//        for (native in natives) {
+//            if (File())
+//        }
     }
 }

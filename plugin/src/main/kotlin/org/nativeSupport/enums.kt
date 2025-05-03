@@ -39,8 +39,6 @@ enum class OS {
     }
 }
 
-fun String.normalized() = lowercase().replace("[^a-z0-9]+".toRegex(), "")
-
 enum class Arch {
     x86_64,
     x86_32,
@@ -98,3 +96,5 @@ enum class Arch {
         }
     }
 }
+
+fun String.normalized() = lowercase().replace("[^a-z0-9]+".toRegex(), "")

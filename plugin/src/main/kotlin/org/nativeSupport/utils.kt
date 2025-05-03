@@ -5,11 +5,10 @@ import org.gradle.api.attributes.*
 import org.gradle.api.component.AdhocComponentWithVariants
 import org.gradle.api.tasks.bundling.Jar
 import org.gradle.kotlin.dsl.assign
-import org.gradle.kotlin.dsl.create
 import org.gradle.kotlin.dsl.get
 import org.gradle.kotlin.dsl.named
+import org.gradle.kotlin.dsl.register
 import java.io.File
-import java.security.MessageDigest
 
 fun Project.nativeVariantOf(os: OS, arch: Arch, relativeLib: String) =
     NativeVariant(os, arch, projectDir.resolve(relativeLib))
@@ -25,7 +24,7 @@ fun Project.addRuntimeVariantsFor(nativeVariants: List<NativeVariant>) {
     val javaComponent = components.findByName("java") as AdhocComponentWithVariants
     nativeVariants.forEach { variantDefinition ->
         // Creation of the native jars
-        val nativeJar = tasks.create<Jar>(variantDefinition.classifier + "Jar") {
+        val nativeJar = tasks.register<Jar>(variantDefinition.classifier + "Jar") {
             archiveClassifier = variantDefinition.classifier
             from(variantDefinition.lib)
 //            val md = MessageDigest.getInstance("SHA-1")

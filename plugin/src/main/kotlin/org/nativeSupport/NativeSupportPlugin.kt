@@ -58,7 +58,7 @@ class NativeSupportPlugin : Plugin<Project> {
                         // configuration ':composeApp:metadataCompileClasspath'
                         // {org.gradle.category=library, org.gradle.jvm.environment=non-jvm, org.gradle.usage=kotlin-metadata, org.jetbrains.kotlin.platform.type=common}
                         if (category == Category.LIBRARY && (usage == Usage.JAVA_API || usage == Usage.JAVA_RUNTIME)) {
-                            // let's try only the `runtime` usage since this should be included the `api` as well
+                            // let's try only the `runtime` usage since this should be included in the `api` as well
                             //                        if (category == Category.LIBRARY && usage == Usage.JAVA_RUNTIME) {
                             // select a platform, will fail to compose a runtime classpath if none is selected
                             os = OS.current // or MACOS or LINUX
